@@ -4,11 +4,27 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
+import com.sfwltd.demo.CommaDelimitedPrinterKotlin;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+@RunWith(Parameterized.class)
 public class CommaDelimitedPrinterTest {
 
-	CommaDelimitedPrinterJava7 printer = new CommaDelimitedPrinterJava7();
+	private CommaDelimitedPrinter printer;
+
+	public CommaDelimitedPrinterTest(CommaDelimitedPrinter printer) {
+		this.printer = printer;
+	}
+
+	@Parameterized.Parameters(name = "{0}")
+	public static Collection<? super CommaDelimitedPrinter[]> data() {
+		return Arrays.asList(new CommaDelimitedPrinterJava7(), new CommaDelimitedPrinterJava8(), new CommaDelimitedPrinterKotlin());
+	}
 	
 	@Test
 	public void returnsEmptyStringWithNoTokens() {

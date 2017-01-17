@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CommaDelimitedPrinterJava7 {
+public class CommaDelimitedPrinterJava7 implements CommaDelimitedPrinter {
 
 	public static class LengthComparator implements Comparator<String> {
 

@@ -4,7 +4,7 @@ import static java.util.Arrays.stream;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.joining;
 
-public class CommaDelimitedPrinterJava8 {
+public class CommaDelimitedPrinterJava8 implements CommaDelimitedPrinter {
 
 	public String delimit(String... tokens) {
 		return stream(tokens)
